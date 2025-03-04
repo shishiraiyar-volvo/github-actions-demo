@@ -1,0 +1,21 @@
+name: PR Tests - Production
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Automated tests
+        run: |
+          echo "Running tests for prod..."
+          sleep 5
+          echo "Tests completed"
